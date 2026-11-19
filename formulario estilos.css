@@ -1,0 +1,476 @@
+/* DISEÑO GENERAL */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #130d1d;
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 20px;
+}
+
+/* CONTENEDOR DEL FORMULARIO */
+.contenedor {
+    background: #21152e;
+    width: 100%;
+    max-width: 450px;
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid #a83e91;
+    box-shadow: 0 0 20px #8e44ad;
+}
+
+h1 {
+    text-align: center;
+    color: #ff70c5;
+    margin-bottom: 25px;
+    font-size: 28px;
+}
+
+/* ETIQUETAS */
+label {
+    display: block;
+    margin-top: 15px;
+    color: #f3c5ed;
+    font-weight: bold;
+}
+
+/* CAMPOS DEL FORMULARIO */
+input {
+    width: 100%;
+    padding: 11px;
+    margin-top: 6px;
+    background: #130d1d;
+    color: white;
+    border: 1px solid #8e44ad;
+    border-radius: 7px;
+    font-size: 15px;
+}
+
+input:focus {
+    outline: none;
+    border-color: #ff70c5;
+    box-shadow: 0 0 6px #ff70c5;
+}
+
+/* FECHA DE NACIMIENTO */
+input[type="date"] {
+    color-scheme: dark;
+    cursor: pointer;
+}
+
+/* MENSAJES DE ERROR */
+.error {
+    color: #ff4d6d;
+    font-size: 13px;
+    display: block;
+    margin-top: 5px;
+    min-height: 16px;
+}
+
+/* BOTÓN VALIDAR */
+form button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    background: linear-gradient(90deg, #a83e91, #7135a5);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+form button:hover {
+    background: linear-gradient(90deg, #d94da9, #9854d1);
+}
+
+
+/* ADAPTACIÓN PARA CELULARES */
+@media (max-width: 500px) {
+    .contenedor {
+        padding: 22px;
+        margin-top: 45px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .menu-lateral {
+        width: 250px;
+    }
+}
+/* FECHA DE NACIMIENTO */
+.fecha-nacimiento {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    margin-top: 6px;
+}
+
+.fecha-nacimiento select {
+    width: 33.33%;
+    min-width: 0;
+    padding: 11px 5px;
+    background: #130d1d;
+    color: white;
+    border: 1px solid #8e44ad;
+    border-radius: 7px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.fecha-nacimiento select:focus {
+    outline: none;
+    border-color: #ff70c5;
+    box-shadow: 0 0 6px #ff70c5;
+}
+
+.fecha-nacimiento option {
+    background: #21152e;
+    color: white;
+}
+/* DISEÑO GENERAL */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #130d1d;
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 20px;
+}
+
+/* CONTENEDOR DEL FORMULARIO */
+.contenedor {
+    background: #21152e;
+    width: 100%;
+    max-width: 450px;
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid #a83e91;
+    box-shadow: 0 0 20px #8e44ad;
+}
+
+h1 {
+    text-align: center;
+    color: #ff70c5;
+    margin-bottom: 25px;
+    font-size: 28px;
+}
+
+/* ETIQUETAS */
+label {
+    display: block;
+    margin-top: 15px;
+    color: #f3c5ed;
+    font-weight: bold;
+}
+
+/* CAMPOS DEL FORMULARIO */
+input {
+    width: 100%;
+    padding: 11px;
+    margin-top: 6px;
+    background: #130d1d;
+    color: white;
+    border: 1px solid #8e44ad;
+    border-radius: 7px;
+    font-size: 15px;
+}
+
+input:focus {
+    outline: none;
+    border-color: #ff70c5;
+    box-shadow: 0 0 6px #ff70c5;
+}
+
+/* FECHA DE NACIMIENTO */
+input[type="date"] {
+    color-scheme: dark;
+    cursor: pointer;
+}
+
+/* MENSAJES DE ERROR */
+.error {
+    color: #ff4d6d;
+    font-size: 13px;
+    display: block;
+    margin-top: 5px;
+    min-height: 16px;
+}
+
+/* BOTÓN VALIDAR */
+form button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    background: linear-gradient(90deg, #a83e91, #7135a5);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+form button:hover {
+    background: linear-gradient(90deg, #d94da9, #9854d1);
+}
+
+/* BOTÓN PARA ABRIR EL MENÚ */
+.boton-menu {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 50px;
+    height: 50px;
+    margin: 0;
+    padding: 0;
+    z-index: 10002;
+    background: #a83e91;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+/* FONDO OSCURO DEL MENÚ */
+.fondo-menu {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 10000;
+    display: none;
+}
+
+.fondo-menu.mostrar {
+    display: block;
+}
+
+/* MENÚ LATERAL */
+.menu-lateral {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 260px;
+    height: 100vh;
+    background: #21152e;
+    padding: 25px;
+    z-index: 10001;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    overflow-y: auto;
+}
+
+.menu-lateral.mostrar {
+    transform: translateX(0);
+}
+
+/* TÍTULO DEL MENÚ */
+.menu-titulo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.menu-titulo h2 {
+    color: #ff70c5;
+    font-size: 22px;
+}
+
+.menu-titulo button {
+    width: 35px;
+    height: 35px;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    color: white;
+    border: none;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+/* ENLACES DEL MENÚ */
+.menu-lateral a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 15px 5px;
+    font-size: 16px;
+    border-radius: 7px;
+}
+
+.menu-lateral a:hover,
+.menu-lateral a.activo {
+    color: #ff70c5;
+    background: #352142;
+}
+
+/* NOTA INFERIOR DEL MENÚ */
+.menu-nota {
+    margin-top: 40px;
+    color: #ff70c5;
+    text-align: center;
+}
+
+.nota-icono {
+    font-size: 35px;
+    margin-bottom: 8px;
+}
+
+/* ADAPTACIÓN PARA CELULARES */
+@media (max-width: 500px) {
+    .contenedor {
+        padding: 22px;
+        margin-top: 45px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .menu-lateral {
+        width: 250px;
+    }
+}
+/* FECHA DE NACIMIENTO */
+.fecha-nacimiento {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    margin-top: 6px;
+}
+
+.fecha-nacimiento select {
+    width: 33.33%;
+    min-width: 0;
+    padding: 11px 5px;
+    background: #130d1d;
+    color: white;
+    border: 1px solid #8e44ad;
+    border-radius: 7px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.fecha-nacimiento select:focus {
+    outline: none;
+    border-color: #ff70c5;
+    box-shadow: 0 0 6px #ff70c5;
+}
+
+.fecha-nacimiento option {
+    background: #21152e;
+    color: white;
+}
+/* BOTÓN DEL MENÚ */
+.boton-menu {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1002;
+    background: #ff2e93;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 23px;
+    cursor: pointer;
+}
+
+/* FONDO OSCURO */
+.fondo-menu {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+    z-index: 1000;
+}
+
+/* MENÚ LATERAL */
+.menu-lateral {
+    position: fixed;
+    top: 0;
+    left: -280px;
+    width: 250px;
+    height: 100%;
+    background: #17121f;
+    padding: 30px 20px;
+    box-sizing: border-box;
+    z-index: 1001;
+    transition: left 0.3s;
+}
+
+.menu-lateral h2 {
+    color: #ff2e93;
+    margin-bottom: 35px;
+}
+
+.menu-lateral nav a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 15px 10px;
+    border-bottom: 1px solid #39303f;
+    font-size: 16px;
+}
+
+.menu-lateral nav a:hover {
+    color: #ff2e93;
+    background: #292131;
+}
+
+/* BOTÓN CERRAR */
+.cerrar-menu {
+    margin-top: 30px;
+    padding: 10px 20px;
+    background: #ff2e93;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* MENÚ ABIERTO */
+.menu-lateral.activo {
+    transform: translateX(0) !important;
+    left: 0 !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.fondo-menu.activo {
+    opacity: 1;
+    visibility: visible;
+display: block;
+}
+/* OCULTAR BOTÓN AL ABRIR EL MENÚ */
+body:has(.menu-lateral.activo) .boton-menu {
+    display: none;
+}
+input:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: #30213e;
+}
