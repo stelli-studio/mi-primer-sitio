@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stelli</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <header class="encabezado">
+        <button class="boton-menu" id="abrirMenu" aria-label="Abrir menú" aria-expanded="false">☰</button>
+        <a class="logo" href="#inicio">♪ STELLI</a>
+    </header>
+    <div class="fondo-menu" id="fondoMenu"></div>
+    <aside class="menu-lateral" id="menuLateral">
+        <div class="menu-titulo"><h2>Tu espacio</h2><button id="cerrarMenu" aria-label="Cerrar menú">×</button></div>
+        <a class="enlace activo" href="#inicio">⌂ <span>Inicio</span></a>
+        <a class="enlace" href="#albumes">▣ <span>Álbumes</span></a>
+        <a class="enlace" href="#conciertos">▶ <span>Conciertos</span></a>
+        <a class="enlace" href="#listas">☷ <span>Mis listas</span></a>
+        <a class="enlace" href="formulario.html">☆ <span>Suscripción</span></a>
+        <div class="menu-nota"><div class="nota-icono">♫</div><strong>Tu música, tu estilo</strong></div>
+    </aside>
+
+    <main id="inicio">
+        <section class="hero">
+            <div class="hero-texto">
+                <p class="etiqueta"></p>
+                <h1><br>TU MÚSICA, TU ESTILO <span>♡</span></h1>
+                <P>Un mundo lleno de música</P>
+            </div>
+            <div class="disco disco-grande">♫</div><div class="disco disco-pequeno">♪</div>
+        </section>
+
+        <section class="seccion" id="albumes">
+            <div class="titulo-seccion"><div><h2>Álbumes destacados</h2></div></div>
+            <div class="rejilla-albumes">
+                <article class="album"><a href="regional.html"><img src="regional.jpg" width="100%"></a><h2>Regional Mexicano</h2></article>
+                <article class="album"><a href="pop.html"><img src="pop.jpg" width="100%"></a><h2>Pop</h2></article>
+                <article class="album"><a href="urbano.html"><img src="urbano.jpg" width="100%"></a><h2>Urbano Latino</h2></article>
+                <article class="album"><a href="banda.html"><img src="bandas.jpg" width="100%"></a><h2>Banda</h2></article>
+            </div>
+        </section>
+    <section class="seccion" id="conciertos">
+       <div class="tarjeta-portada">
+       <img src="conciertos.jpg" alt="Conciertos en vivo">
+       <div class="info-concierto">
+       <h3> ¡La música se vive en directo!</h3>
+       <a href="conciertos.html" class="boton-conciertos">
+       Ver conciertos →
+       </a>
+       </div></div></section>
+        <section class="seccion" id="listas">
+            <div class="titulo-seccion"></div><h2>Mis listas</h2></div></div>
+             <div class="rejilla-listas">
+<a href="favoritas.html" class="lista lista-rosa">
+<span>♡</span><h3>Mis favoritas</h3><p>Canciones que amo</p></a>
+<a href="relajarse.html" class="lista lista-morada"><span>☾</span><h3>Para relajarse</h3>
+<p>Música para desconectar</p></a>
+<a href="vibras.html" class="lista lista-fucsia">
+<span>✦</span><h3>Buenas vibras</h3>
+<p>Canciones que animan</p></a>
+</div></section>
+
+    <footer><h2>AUTOR ROSCELI RIOS PONCE, 2026 ♡</h2></footer>
+    </main>
+
+    <script>
+        const menu = document.getElementById('menuLateral');
+        const fondo = document.getElementById('fondoMenu');
+        const abrir = document.getElementById('abrirMenu');
+        const cerrar = document.getElementById('cerrarMenu');
+
+        function abrirMenu() {
+            menu.classList.add('mostrar');
+            fondo.classList.add('mostrar');
+            abrir.setAttribute('aria-expanded', 'true');
+        }
+        function cerrarMenu() {
+            menu.classList.remove('mostrar');
+            fondo.classList.remove('mostrar');
+            abrir.setAttribute('aria-expanded', 'false');
+        }
+        abrir.addEventListener('click', abrirMenu);
+        cerrar.addEventListener('click', cerrarMenu);
+        fondo.addEventListener('click', cerrarMenu);
+        document.querySelectorAll('.menu-lateral a').forEach(function(enlace) {
+            enlace.addEventListener('click', cerrarMenu);
+        });
+    </script>
+</body>
+</html>

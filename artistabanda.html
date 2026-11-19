@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>banda</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <header class="encabezado">
+        <a class="logo" href="index.html">♪ STELLI</a>
+    </header>
+
+    <main class="pagina-artista">
+    <details class="menu-artistas">
+        <summary>Ξ Artistas</summary>
+        <nav>
+            <a href="banda.html #artistas">🎵 <span>BANDA</span></a>
+            <a href="?artista=1">▶ <span>LOS DEL LIMIT</span></a>
+            <a href="?artista=2">▶ <span>LOS PLEBES DEL RANCHO DE ARIEL CAMACHO</span></a>
+            <a href="?artista=3">▶ <span>BANDA TIERRA SAGRADA</span></a>
+            <a href="?artista=4">▶ <span>CALIBRE 50</span></a>
+            <a href="?artista=5">▶ <span><span>BANDA LA TRAKALOSA DE MONTERREY</span></a>
+            <a href="?artista=6">▶ <span>LOS RIELEROS DEL NORTE</span></a>
+        </nav>
+    </details>
+        <section class="portada-artista">
+            <div class="avatar-artista">
+            <img id="imagenArtista" src="" alt="Foto del artista">
+            </div>
+            <div>
+                <h1 id="nombreArtista">Nombre del artista</h1>
+            </div>
+        </section>
+
+        <section class="lista-canciones">
+            <h2>♪ Canciones</h2>
+            <div id="canciones"></div>
+        </section>
+    </main>
+
+    <script>
+        /* Cambia los nombres y canciones de este ejemplo por los de tus artistas favoritos. */
+        const artistas = {
+            1: { nombre: "LOS DEL LIMIT", imagen:"limit.jpg", canciones: ["AMOR FUGAZ", "MI DESPEDIDA", "MI TESORO", "DIME TÚ", "COMO TE OLVIDO", "SIENDO SINCERO"] },
+            2: { nombre: "LOS PLEBES DEL RANCHO DE ARIEL CAMACHO", imagen:"ariel.jpg", canciones: ["HABLEMOS", "COMO FUE", "NADIE", "POR ENAMORARME", "NO LO HICE BIEN", "QUÉ CARO ESTOY PAGANDO"] },
+            3: { nombre: "BANDA TIERRA SAGRADA", imagen:"tierra.jpg", canciones: ["LA BUENA Y LA MALA", "EL BUENO Y EL MALO", "SUSPIROS", "HOMBRE SENCILLO", "INCOMPARABLE", "ASÍ TE QUIERO YO"] },
+            4: { nombre: "CALIBRE 50", imagen:"calibre.jpg", canciones: ["SI TE PUDIERA MENTIR", "A LA ANTIGÜITA", "CONTIGO", "BOHEMIO LOCO", "TUS LATIDOS", "AUNQUE AHORA ESTÉS CON ÉL"] },
+            5: { nombre: "BANDA LA TRAKALOSA DE MONTERREY", imagen:"trakalosa.jpg", canciones: ["BROCHE DE ORO", "SUPISTE HACERME MAL", "FÍJATE QUE SÍ", "BORRACHO DE AMOR", "PUDE HABER SIDO YO", "DOBLE VIDA"] },
+            6: { nombre: "LOS RIELEROS DEL NORTE", imagen:"los rieleros.jpg", canciones: ["VOY A LLORAR POR TI", "TE QUIERO MUCHO", "AYER LA VI POR LA CALLE", "NOCHES ETERNAS", "DIME QUIÉN ES", "AYÚDAME A OLVIDARTE"] }
+        };
+
+ const numero = new URLSearchParams(window.location.search).get("artista") || "1";
+const artista = artistas[numero] || artistas["1"];
+
+document.title = artista.nombre + " | STELLI";
+document.getElementById("nombreArtista").textContent = artista.nombre;
+const imagen=
+document.getElementById("imagenArtista");imagen.src=artista.imagen;
+
+const contenedor = document.getElementById("canciones");
+console.log("La pagina esta ejecutando JavaScript");
+console.log(artistas);
+console.log(artista);
+                const archivos={
+                    "AMOR FUGAZ":"amor fugaz.mp3",
+                    "MI DESPEDIDA":"mi despedida.mp3",
+                    "MI TESORO":"mi tesoro.mp3",
+                    "DIME TÚ":"dime tu.mp3",
+                    "COMO TE OLVIDO":"como te olvido.mp3",
+                    "SIENDO SINCERO":"siendo sincero.mp3",
+                    "HABLEMOS":"hablemos.mp3",
+                    "COMO FUE":"como fue.mp3",
+                    "NADIE":"nadie.mp3",
+                    "POR ENAMORARME":"Por Enamorarme.mp3",
+                    "NO LO HICE BIEN":"no lo hice bien.mp3",
+                    "QUÉ CARO ESTOY PAGANDO":"que caro estoy pagando.mp3",
+                    "LA BUENA Y LA MALA":"la buena.mp3",
+                    "EL BUENO Y EL MALO":"el bueno.mp3",
+                    "SUSPIROS":"suspiros.mp3",
+                    "HOMBRE SENCILLO":"hombre sencillo.mp3",
+                    "INCOMPARABLE":"incomparable.mp3",
+                    "ASÍ TE QUIERO YO":"asi te quiero yo.mp3",
+                    "SI TE PUDIERA MENTIR":"si te pudiera mentir.mp3",
+                    "A LA ANTIGÜITA":"a la antiguita.mp3",
+                    "CONTIGO":"contigo.mp3",
+                    "BOHEMIO LOCO":"bohemio loco.mp3",
+                    "TUS LATIDOS":"tus latidos.mp3",
+                    "AUNQUE AHORA ESTÉS CON ÉL":"aunque ahora.mp3",
+                    "BROCHE DE ORO":"broche de oro.mp3",
+                    "SUPISTE HACERME MAL":"supiste hacerme mal.mp3",
+                    "FÍJATE QUE SÍ":"fijate que si.mp3",
+                    "BORRACHO DE AMOR":"borracho de amor.mp3",
+                    "PUDE HABER SIDO YO":"pude haber sido yo.mp3",
+                    "DOBLE VIDA":"doble vida.mp3",
+                    "VOY A LLORAR POR TI":"voy a llorar.mp3",
+                    "TE QUIERO MUCHO":"te quiero.mp3",
+                    "AYER LA VI POR LA CALLE":"ayer la vi.mp3",
+                    "NOCHES ETERNAS":"noches eternas.mp3",
+                    "DIME QUIÉN ES":"dime quien es.mp3",
+                    "AYÚDAME A OLVIDARTE":"ayudame a olvidarte.mp3",
+                };
+                    artista.canciones.forEach(function(cancion, indice) {
+    const fila = document.createElement("div");
+    fila.className = "cancion";
+
+    fila.innerHTML =
+        '<span class="cancion-numero">' + (indice + 1) + '</span>' +
+        '<div class="cancion-info"><strong></strong><small>STELLI · Canción</small></div>' +
+        '<button class="boton-reproducir" type="button">▶</button>' +
+        '<button class="boton-pausar boton-reproducir" type="button">⏸️</button>';
+
+    fila.querySelector(".cancion-info strong").textContent = cancion;
+
+    const boton = fila.querySelector("button");
+    const botonPausa=
+    fila.querySelector(".boton-pausar");
+    botonPausa.addEventListener("click",function(){
+        const audio=
+        document.getElementById("reproductor");
+        if (audio) {
+            audio.pause();
+        }
+    });
+
+    boton.addEventListener("click", function() {
+        const archivo = archivos[cancion];
+
+        if (!archivo) {
+            alert("Todavía falta agregar el archivo de esta canción.");
+            return;
+        }
+
+        let audio = document.getElementById("reproductor");
+
+        if (!audio) {
+            audio = document.createElement("audio");
+            audio.id = "reproductor";
+            contenedor.parentNode.appendChild(audio);
+        }
+    audio.src = "canciones/" + archivo;
+    audio.play().catch(function() {
+     alert("No se pudo reproducir. Revisa que el archivo exista.");
+    });
+     });
+    contenedor.appendChild(fila);
+    });
+
+</script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regional Mexicano</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <header class="encabezado">
+        <button class="boton-menu" id="abrirMenu" aria-label="Abrir menú" aria-expanded="false">☰</button>
+        <a class="logo" href="#inicio">♪ STELLI</a>
+    </header>
+    <div class="fondo-menu" id="fondoMenu"></div>
+    <aside class="menu-lateral" id="menuLateral">
+        <div class="menu-titulo"><h2>Tu espacio</h2><button id="cerrarMenu" aria-label="Cerrar menú">×</button></div>
+        <a class="enlace activo" href="index.html #inicio">⌂ <span>Inicio</span></a>
+        <a class="enlace" href="index.html #albumes">▣ <span>Álbumes</span></a>
+        <a class="enlace" href=" index.html #conciertos">▶ <span>Conciertos</span></a>
+        <a class="enlace" href="index.html #listas">☷ <span>Mis listas</span></a>
+        <div class="menu-nota"><div class="nota-icono">♫</div><strong>Tu música, tu estilo</strong></div>
+    </aside>
+     <main id="inicio">
+        <section class="hero">
+        <h1>REGIONAL MEXICANO</h1>
+        </section>
+
+<section class="seccion" id="artistas">
+            
+            <div class="rejilla-artistas">
+                <article class="tarjeta-artista">
+                    <a class="artista-enlace" href="artistaregi.html?artista=1" aria-label="Ver canciones del artista 1">
+                        <div class="espacio-imagen"><small><img src="ivann.jpg" width="365" height="177"></small></div>
+                        <h3>IVAN CORNEJO</h3>
+                    </a>
+                    <a class="boton-ver" href="artistaregi.html?artista=1">Ver canciones ↗</a>
+                </article>
+                <article class="tarjeta-artista">
+                    <a class="artista-enlace" href="artistaregi.html?artista=2" aria-label="Ver canciones del artista 2">
+                        <div class="espacio-imagen"><small><img src="cano.WEBP" width="385" height="177"></small></div>
+                        <h3>NATANAEL CANO</h3>
+                    </a>
+                    <a class="boton-ver" href="artistaregi.html?artista=2">Ver canciones ↗</a>
+                </article>
+                <article class="tarjeta-artista">
+                    <a class="artista-enlace" href="artistaregi.html?artista=3" aria-label="Ver canciones del artista 3">
+                        <div class="espacio-imagen"><small><img src="ELEMENTO.jpg" width="365" height="177"></small></div>
+                        <h3>T3R ELEMENTO</h3>
+                    </a>
+                    <a class="boton-ver" href="artistaregi.html?artista=3">Ver canciones ↗</a>
+                </article>
+                <article class="tarjeta-artista">
+                    <a class="artista-enlace" href="artistaregi.html?artista=4" aria-label="Ver canciones del artista 4">
+                        <div class="espacio-imagen"><small><img src="jasiel.jpg" width="365" height="177"></small></div>
+                        <h3>JASIEL NÚÑEZ</h3>
+                    </a>
+                    <a class="boton-ver" href="artistaregi.html?artista=4">Ver canciones ↗</a>
+                </article>
+                <article class="tarjeta-artista">
+                    <a class="artista-enlace" href="artistaregi.html?artista=5" aria-label="Ver canciones del artista 5">
+                        <div class="espacio-imagen"><small><img src="eslabon.jpg" width="365" height="177"></small></div>
+                        <h3>ESLABÓN ARMADO</h3>
+                    </a>
+                    <a class="boton-ver" href="artistaregi.html?artista=5">Ver canciones ↗</a>
+                </article>
+                <article class="tarjeta-artista">
+                    <a class="artista-enlace" href="artistaregi.html?artista=6" aria-label="Ver canciones del artista 6">
+                        <div class="espacio-imagen"><small><img src="junior.WEBP" width="365" height="177"></small></div>
+                        <h3>JUNIOR H</h3>
+                    </a>
+                    <a class="boton-ver" href="artistaregi.html?artista=6">Ver canciones ↗</a>
+                </article>
+            </div>
+        </section>
+        <script>
+        const menu = document.getElementById('menuLateral');
+        const fondo = document.getElementById('fondoMenu');
+        const abrir = document.getElementById('abrirMenu');
+        const cerrar = document.getElementById('cerrarMenu');
+
+        function abrirMenu() {
+            menu.classList.add('mostrar');
+            fondo.classList.add('mostrar');
+            abrir.setAttribute('aria-expanded', 'true');
+        }
+        function cerrarMenu() {
+            menu.classList.remove('mostrar');
+            fondo.classList.remove('mostrar');
+            abrir.setAttribute('aria-expanded', 'false');
+        }
+        abrir.addEventListener('click', abrirMenu);
+        cerrar.addEventListener('click', cerrarMenu);
+        fondo.addEventListener('click', cerrarMenu);
+        document.querySelectorAll('.menu-lateral a').forEach(function(enlace) {
+            enlace.addEventListener('click', cerrarMenu);
+        });
+    </script>
+        </body>
+        </html>

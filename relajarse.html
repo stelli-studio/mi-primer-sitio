@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>relajarse</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body class="pagina-playlist">
+
+<header class="encabezado">
+    <button class="boton-menu" onclick="history.back()">←</button>
+    <a class="logo" href="index.html"> ♪ STELLI</a>
+    <a href="index.html" class="volver-inicio">Inicio</a>
+</header>
+
+<main class="contenido-playlist">
+
+<section class="portada-playlist relajarse-portada">
+    <img src="relajarse.jpg" alt="Portada Para relajarse">
+
+    <div class="datos-playlist">
+        <p class="tipo-playlist"> PERSONAL</p>
+        <h1>☾ Para relajarse</h1>
+        <p class="descripcion-playlist">
+            Canciones que me gusta escuchar para disfrutar
+            de la música y pasar un momento tranquilo.
+        </p>
+    </div>
+</section>
+
+<section class="seccion-canciones">
+
+    <div class="encabezado-canciones">
+        <h2>Mi música favorita</h2>
+    </div>
+
+    <div class="fila-cancion">
+        <span class="numero">01</span>
+        <img src="billie.jpg" alt="WILDFLOWER">
+
+        <div class="info-cancion">
+            <h3>WILDFLOWER</h3>
+            <p>Billie Eilish</p>
+        </div>
+
+        <audio class="musica">
+            <source src="canciones/wildflower.mp3" type="audio/mpeg">
+        </audio>
+        <button class="boton-play" onclick="playMusic(this)">▶</button>
+        <span class="duracion">♫</span>
+    </div>
+
+    <div class="fila-cancion">
+        <span class="numero">02</span>
+        <img src="jorge.jpg" alt="IMU">
+
+        <div class="info-cancion">
+            <h3>IMU</h3>
+            <p>Jorge Cuéllar</p>
+        </div>
+
+        <audio class="musica">
+            <source src="canciones/imu.mp3" type="audio/mpeg">
+        </audio>
+        <button class="boton-play" onclick="playMusic(this)">▶</button>
+        <span class="duracion">♫</span>
+    </div>
+
+    <div class="fila-cancion">
+        <span class="numero">03</span>
+        <img src="rauw.jpg" alt="Aquel Nap Zzzz">
+
+        <div class="info-cancion">
+            <h3>Aquel Nap Zzzz</h3>
+            <p>Rauw Alejandro</p>
+        </div>
+
+        <audio class="musica">
+            <source src="canciones/aquel nap zzzz.mp3" type="audio/mpeg">
+        </audio>
+        <button class="boton-play" onclick="playMusic(this)">▶</button>
+        <span class="duracion">♫</span>
+    </div>
+
+</section>
+</main>
+
+<script>
+function playMusic(boton) {
+    let audio = boton.previousElementSibling;
+
+    document.querySelectorAll(".musica").forEach(a => {
+        if (a !== audio) {
+            a.pause();
+            a.currentTime = 0;
+            a.nextElementSibling.textContent = "▶";
+        }
+    });
+
+    if (audio.paused) {
+        audio.play();
+        boton.textContent = "⏸";
+    } else {
+        audio.pause();
+        boton.textContent = "▶";
+    }
+}
+</script>
+
+</body>
+</html>

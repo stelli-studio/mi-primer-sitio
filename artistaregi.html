@@ -1,0 +1,146 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regional</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <header class="encabezado">
+        <a class="logo" href="index.html">♪ STELLI</a>
+    </header>
+    <main class="pagina-artista">
+    <details class="menu-artistas">
+        <summary>Ξ Artistas</summary>
+        <nav>
+            <a href="regional.html #artistas">🎵 <span>REGIONAL MEXICANO</span></a>
+            <a href="?artista=1">▶ <span>IVÁN CORNEJO</span></a>
+            <a href="?artista=2">▶ <span>NATANAEL CANO</span></a>
+            <a href="?artista=3">▶ <span>T3R ELEMENTO</span></a>
+            <a href="?artista=4">▶ <span>JASIEL NÚÑEZ</span></a>
+            <a href="?artista=5">▶ <span>ESLABÓN ARMADO</span></a>
+            <a href="?artista=6">▶ <span>JUNIOR H</span></a>
+        </nav>
+    </details>
+        <section class="portada-artista">
+            <div class="avatar-artista">
+            <img id="imagenArtista" src="" alt="Foto del artista">
+            </div>
+            <div>
+                <h1 id="nombreArtista">Nombre del artista</h1>
+            </div>
+        </section>
+
+        <section class="lista-canciones">
+            <h2>♪ Canciones</h2>
+            <div id="canciones"></div>
+        </section>
+    </main>
+    <script>
+        /* Cambia los nombres y canciones de este ejemplo por los de tus artistas favoritos. */
+        const artistas = {
+            1: { nombre: "IVÁN CORNEJO", imagen:"ivann.jpg", canciones: ["VUELVE", "PERRO ABANDONADO", "BABY PLEASE", "J.", "MIRADA", "DONDE ESTÁS"] },
+            2: { nombre: "NATANAEL CANO", imagen:"cano.webp", canciones: ["AMOR TUMBADO", "MADONNA", "MI BELLO ÁNGEL", "PACAS DE BILLETES", "PRESIDENTE", "BLANCANIEVES"] },
+            3: { nombre: "T3R ELEMENTO", imagen:"ELEMENTO.jpg", canciones: ["OJITOS DE MIEL", "LABIOS DE CEREZA", "LABIOS DE CEREZA 2", "LABIOS DE CEREZA 3", "QUE TE VAS", "MI RELIGIÓN"] },
+            4: { nombre: "JASIEL NÚÑES", imagen:"jasiel.jpg", canciones: ["CORAZÓN FRÍO", "NOCHES FRÍAS", "CIELO ETERNO", "MADRID", "0 SENTIMIENTOS", "LINDA MUJER"] },
+            5: { nombre: "ESLABÓN ARMADO", imagen:"eslabon.jpg", canciones: ["AMARTE A LA ANTIGUA", "K", "ME MATAS", "JUGASTE Y SUFRÍ", "SIEMPRE SIEMPRE", "CHULA"] },
+            6: { nombre: "JUNIOR H", imagen:"junior.webp", canciones: ["Y LLORO", "DEMENCIA", "MI GATA", "MIENTRAS DUERMES", "ELLA", "VOLVER AL FUTURO"] }
+        };
+
+       const numero = new URLSearchParams(window.location.search).get("artista") || "1";
+const artista = artistas[numero] || artistas["1"];
+
+document.title = artista.nombre + " | STELLI";
+document.getElementById("nombreArtista").textContent = artista.nombre;
+const imagen=
+document.getElementById("imagenArtista");imagen.src=artista.imagen;
+
+const contenedor = document.getElementById("canciones");
+
+console.log("La pagina esta ejecutando JavaScript");
+console.log(artistas);
+console.log(artista);
+
+const archivos = {
+    "VUELVE": "vuelve.mp3",
+    "PERRO ABANDONADO": "perro abandonado.mp3",
+    "BABY PLEASE": "baby please.mp3",
+    "J.": "j.mp3",
+    "MIRADA": "mirada.mp3",
+    "DONDE ESTÁS": "donde estas.mp3",
+    "AMOR TUMBADO": "amor tumbado.mp3",
+    "MADONNA": "madonna.mp3",
+    "MI BELLO ÁNGEL": "mi bello ángel.mp3",
+    "PACAS DE BILLETES": "pacas de billetes.mp3",
+    "PRESIDENTE": "presidente.mp3",
+    "BLANCANIEVES":"blancanieves.mp3",
+    "OJITOS DE MIEL": "ojitos de miel.mp3",
+    "LABIOS DE CEREZA": "labios de cereza.mp3",
+    "LABIOS DE CEREZA 2": "labios de cereza 2.mp3",
+    "LABIOS DE CEREZA 3": "labios de cereza 3.mp3",
+    "QUE TE VAS": "que te vas.mp3",
+    "MI RELIGIÓN": "mi religión.mp3",
+    "CORAZÓN FRÍO": "corazón frío.mp3",
+    "NOCHES FRÍAS": "noches frías.mp3",
+    "CIELO ETERNO": "cielo eterno.mp3",
+    "MADRID": "madrid.mp3",
+    "0 SENTIMIENTOS": "0 sentimientos.mp3",
+    "LINDA MUJER": "linda mujer.mp3",
+    "AMARTE A LA ANTIGUA": "amarte a la antigua.mp3",
+    "K": "k.mp3",
+    "ME MATAS": "me matas.mp3",
+    "JUGASTE Y SUFRÍ": "jugaste y sufrí.mp3",
+    "SIEMPRE SIEMPRE": "siempre siempre.mp3",
+    "CHULA": "chula.mp3",
+    "Y LLORO": "y lloro.mp3",
+    "DEMENCIA": "demencia.mp3",
+    "MI GATA": "mi gata.mp3",
+    "MIENTRAS DUERMES": "mientras duermes.mp3",
+    "ELLA": "ella.mp3",
+    "VOLVER AL FUTURO": "volver al futuro.mp3"
+};
+
+artista.canciones.forEach(function(cancion, indice) {
+    const fila = document.createElement("div");
+    fila.className = "cancion";
+
+    fila.innerHTML =
+        '<span class="cancion-numero">' + (indice + 1) + '</span>' +
+        '<div class="cancion-info"><strong></strong><small>STELLI · Canción</small></div>' +
+        '<button class="boton-reproducir" type="button">▶</button>' +
+        '<button class="boton-pausar boton-reproducir" type="button">⏸️</button>';
+
+    fila.querySelector(".cancion-info strong").textContent = cancion;
+
+    const boton = fila.querySelector("button");
+    const botonPausa=
+    fila.querySelector(".boton-pausar");
+    botonPausa.addEventListener("click",function(){
+        const audio=
+        document.getElementById("reproductor");
+        if (audio) {
+            audio.pause();
+        }
+    });
+    boton.addEventListener("click", function() {
+        const archivo = archivos[cancion];
+    if (!archivo) {
+            alert("Todavía falta agregar el archivo de esta canción.");
+            return;
+        }
+     let audio = document.getElementById("reproductor");
+        if (!audio) {
+            audio = document.createElement("audio");
+            audio.id = "reproductor";
+            contenedor.parentNode.appendChild(audio);
+        }
+    audio.src = "canciones/" + archivo;
+     audio.play().catch(function() {
+     alert("No se pudo reproducir. Revisa que el archivo exista.");
+      });
+    });
+    contenedor.appendChild(fila);
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Registro | STELLI </title>
+    <link rel="stylesheet" href="formulario estilos.css">
+</head>
+<body>
+
+    <!-- ENCABEZADO -->
+    <header class="encabezado">
+        <button class="boton-menu" id="abrirMenu"
+        aria-label="Abrir menú" aria-expanded="false">☰</button>
+    </header>
+
+    <!-- FONDO OSCURO -->
+    <div class="fondo-menu" id="fondoMenu"></div>
+
+    <!-- MENÚ LATERAL -->
+    <aside class="menu-lateral" id="menuLateral">
+
+        <div class="menu-titulo">
+            <h2>Tu espacio</h2>
+            <button type="button" id="cerrarMenu" aria-label="Cerrar menú">×</button>
+        </div>
+
+        <a class="enlace activo" href="index.html">⌂ <span>Inicio</span></a>
+        <a class="enlace" href="index.html#albumes">▣ <span>Álbumes</span></a>
+        <a class="enlace" href="index.html#conciertos">▶ <span>Conciertos</span></a>
+        <a class="enlace" href="index.html#listas">☷ <span>Mis listas</span></a>
+        <a class="enlace" href="formulario.html">☆ <span>Suscripción</span></a>
+
+        <div class="menu-nota">
+            <div class="nota-icono">♫</div>
+            <strong>Tu música, tu estilo</strong>
+        </div>
+
+    </aside>
+
+    <!-- FORMULARIO -->
+    <main class="contenedor">
+
+        <h1>Crea tu Cuenta</h1>
+
+        <form id="formulario">
+
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" maxlength="100"
+            placeholder="Escribe tu nombre">
+            <span class="error" id="errorNombre"></span>
+
+            <label for="paterno">Apellido paterno:</label>
+            <input type="text" id="paterno" maxlength="100"
+            placeholder="Escribe tu apellido paterno">
+            <span class="error" id="errorPaterno"></span>
+
+            <label for="materno">Apellido materno:</label>
+            <input type="text" id="materno" maxlength="100"
+            placeholder="Escribe tu apellido materno">
+            <span class="error" id="errorMaterno"></span>
+
+            <label for="edad">Edad:</label>
+            <input type="text" id="edad" maxlength="3"
+            inputmode="numeric" placeholder="Ej. 20">
+            <span class="error" id="errorEdad"></span>
+
+            <label>Fecha de nacimiento:</label>
+
+            <div class="fecha-nacimiento">
+
+                <select id="diaNacimiento">
+                    <option value="">Día</option>
+                </select>
+
+                <select id="mesNacimiento">
+                    <option value="">Mes</option>
+                    <option value="1">Enero</option>
+                    <option value="2">Febrero</option>
+                    <option value="3">Marzo</option>
+                    <option value="4">Abril</option>
+                    <option value="5">Mayo</option>
+                    <option value="6">Junio</option>
+                    <option value="7">Julio</option>
+                    <option value="8">Agosto</option>
+                    <option value="9">Septiembre</option>
+                    <option value="10">Octubre</option>
+                    <option value="11">Noviembre</option>
+                    <option value="12">Diciembre</option>
+                </select>
+
+                <select id="anioNacimiento">
+                    <option value="">Año</option>
+                </select>
+
+            </div>
+
+            <span class="error" id="errorFecha"></span>
+
+            <label for="tarjeta">Número de tarjeta (ficticia):</label>
+            <input type="text" id="tarjeta" maxlength="19"
+            inputmode="numeric" placeholder="xxxx xxxx xxxx xxxx" disabled>
+            <span class="error" id="errorTarjeta"></span>
+
+            <label for="correo">Correo electrónico:</label>
+            <input type="email" id="correo"
+            placeholder="Introduce tu correo">
+            <span class="error" id="errorCorreo"></span>
+
+            <button type="submit" class="boton-validar">Validar</button>
+
+        </form>
+
+    </main>
+
+    <script src="formulario script.js"></script>
+
+</body>
+</html>

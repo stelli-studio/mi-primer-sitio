@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pop</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <header class="encabezado">
+        <a class="logo" href="index.html">♪ STELLI</a>
+        </header>
+
+    <main class="pagina-artista">
+    <details class="menu-artistas">
+        <summary>Ξ Artistas</summary>
+        <nav>
+            <a href="pop.html #artistas">🎵 <span>POP</span></a>
+            <a href="?artista=1">▶ <span>TAYLOR SWIFT</span></a>
+            <a href="?artista=2">▶ <span>BILLIE EILISH</span></a>
+            <a href="?artista=3">▶ <span>ARIANA GRANDE</span></a>
+            <a href="?artista=4">▶ <span>DUA LIPA</span></a>
+            <a href="?artista=5">▶ <span>AITANA</span></a>
+            <a href="?artista=6">▶ <span>LANA DEL REY</span></a>
+        </nav>
+    </details>
+        <section class="portada-artista">
+        <div class="avatar-artista">
+        <img id="imagenArtista" src="" alt="Foto del artista">
+            </div>
+            <div>
+                <h1 id="nombreArtista">Nombre del artista</h1>
+            </div>
+        </section>
+
+        <section class="lista-canciones">
+            <h2>♪ Canciones</h2>
+            <div id="canciones"></div>
+        </section>
+    </main>
+
+    <script>
+        /* Cambia los nombres y canciones de este ejemplo por los de tus artistas favoritos. */
+        const artistas = {
+            1: { nombre: "TAYLOR SWIFT", imagen:"taylor.jpg", canciones: ["SHAKE IT OFF", "THE FATE OF OPHELIA", "BLANK SPACE", "ENCHANTED", "OPALITE", "STYLE"] },
+            2: { nombre: "BILLI EILISH", imagen:"billie.jpg", canciones: ["WILDFLOWER", "BIRDS OF A FEATHER", "OCEAN EYES", "BLUE", "I LOVE YOU", "SKINNY"] },
+            3: { nombre: "ARIANA GRANDE", imagen:"ariana.jpg", canciones: ["MOONLIGHT", "7 RINGS", "INTO YOU", "PETAL", "SUPERNATURAL", "POSITIONS"] },
+            4: { nombre: "DUA LIPA", imagen:"dua.jpg", canciones: ["NEW RULES", "HOUDINI", "LOVE AGAIN", "IDGAF", "ILLUSION", "OYE MI AMOR"] },
+            5: { nombre: "AITANA", imagen:"aitana.jpg", canciones: ["SUPERESTRELLA", "CONEXIÓN PSÍQUICA", "CUARTO AZUL", "VAS A QUEDARTE", "6 DE FEBRERO", "11 RAZONES",] },
+            6: { nombre: "LANA DEL REY", imagen:"lana.avif", canciones: ["SAD GIRL", "RADIO", "SALVATORE", "OLD MONEY", "RIDE", "NI UNA PALABRA"] }
+        };
+
+        const numero = new URLSearchParams(window.location.search).get("artista") || "1";
+const artista = artistas[numero] || artistas["1"];
+
+document.title = artista.nombre + " | STELLI";
+document.getElementById("nombreArtista").textContent = artista.nombre;
+const imagen=
+document.getElementById("imagenArtista");imagen.src=artista.imagen;
+
+const contenedor = document.getElementById("canciones");
+console.log("La pagina esta ejecutando JavaScript");
+console.log(artistas);
+console.log(artista);
+
+                const archivos={
+                    "SHAKE IT OFF":"shake.mp3",
+                    "THE FATE OF OPHELIA":"the fate.mp3",
+                    "BLANK SPACE":"blank.mp3",
+                    "ENCHANTED":"enchanted.mp3",
+                    "OPALITE":"opalite.mp3",
+                    "STYLE":"style.mp3",
+                    "WILDFLOWER":"wildflower.mp3",
+                    "BIRDS OF A FEATHER":"birds.mp3",
+                    "OCEAN EYES":"ocean eyes.mp3",
+                    "BLUE":"blue.mp3",
+                    "I LOVE YOU":"i love you.mp3",
+                    "SKINNY":"Skinny.mp3",
+                    "MOONLIGHT":"moonlight.mp3",
+                    "7 RINGS":"7 rings.mp3",
+                    "INTO YOU":"into you.mp3",
+                    "PETAL":"petal.mp3",
+                    "SUPERNATURAL":"supernatural.mp3",
+                    "POSITIONS":"positions.mp3",
+                    "NEW RULES":"new rules.mp3",
+                    "HOUDINI":"houdini.mp3",
+                    "LOVE AGAIN":"love again.mp3",
+                    "IDGAF":"idgaf.mp3",
+                    "ILLUSION":"illusion.mp3",
+                    "OYE MI AMOR":"oye mi amor.mp3",
+                    "SUPERESTRELLA":"superestrella.mp3",
+                    "CONEXIÓN PSÍQUICA":"conexión.mp3",
+                    "CUARTO AZUL":"cuarto azul.mp3",
+                    "VAS A QUEDARTE":"vas a quedarte.mp3",
+                    "6 DE FEBRERO":"6 de febrero.mp3",
+                    "11 RAZONES":"11 razones.mp3",
+                    "SAD GIRL":"sad.mp3",
+                    "RADIO":"radio.mp3",
+                    "SALVATORE":"salvatore.mp3",
+                    "OLD MONEY":"old.mp3",
+                    "RIDE":"ride.mp3",
+                    "NI UNA PALABRA":"ni una palabra.mp3",
+        };
+artista.canciones.forEach(function(cancion, indice) {
+    const fila = document.createElement("div");
+    fila.className = "cancion";
+
+    fila.innerHTML =
+        '<span class="cancion-numero">' + (indice + 1) + '</span>' +
+        '<div class="cancion-info"><strong></strong><small>STELLI · Canción</small></div>' +
+        '<button class="boton-reproducir" type="button">▶</button>' +
+        '<button class="boton-pausar boton-reproducir" type="button">⏸️</button>';
+
+    fila.querySelector(".cancion-info strong").textContent = cancion;
+
+    const boton = fila.querySelector("button");
+    const botonPausa=
+    fila.querySelector(".boton-pausar");
+    botonPausa.addEventListener("click",function(){
+        const audio=
+        document.getElementById("reproductor");
+        if (audio) {
+            audio.pause();
+        }
+    });
+
+    boton.addEventListener("click", function() {
+        const archivo = archivos[cancion];
+
+        if (!archivo) {
+            alert("Todavía falta agregar el archivo de esta canción.");
+            return;
+        }
+
+        let audio = document.getElementById("reproductor");
+
+        if (!audio) {
+            audio = document.createElement("audio");
+            audio.id = "reproductor";
+            contenedor.parentNode.appendChild(audio);
+        }
+    audio.src = "canciones/" + archivo;
+    audio.play().catch(function() {
+     alert("No se pudo reproducir. Revisa que el archivo exista.");
+    });
+     });
+    contenedor.appendChild(fila);
+    });
+
+</script>
+</body>
+</html>
